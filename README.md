@@ -1,19 +1,23 @@
-# 风控看板（本地预览）
+# risk-control-dashboard
 
-Vue 2 + LUI PC3.0 greenfield 预览项目。目标业务仓确认后再迁入。
+> **本仓库已迁移至 [zhangdan（账单）](https://github.com/bigsenz0007-tygi/zhangdan) 的 `risk-control-dashboard/` 子目录**
 
-## 启动
+请前往新位置继续开发、预览与接入：
+
+- 仓库：https://github.com/bigsenz0007-tygi/zhangdan/tree/main/risk-control-dashboard
+- 子项目说明：https://github.com/bigsenz0007-tygi/zhangdan/blob/main/risk-control-dashboard/README.md
+- 账单 Play（同仓）：https://bigsenz0007-tygi.github.io/zhangdan/play.html
+
+## 本地预览（迁移后）
 
 ```bash
+git clone https://github.com/bigsenz0007-tygi/zhangdan.git
+cd zhangdan/risk-control-dashboard
 npm install
 npm run dev
 ```
 
 默认预览：http://localhost:5175/
-
-## P2C 证据
-
-见 `.delivery/risk-control-dashboard/`。
 
 ## 能力
 
