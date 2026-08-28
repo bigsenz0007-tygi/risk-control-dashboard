@@ -1,0 +1,13 @@
+{
+  "mode": "p2c",
+  "feature_id": "risk-control-dashboard",
+  "decided_at": "2026-08-27T10:48:40Z",
+  "evidence_root": "/Users/zhouxingzi1/Desktop/text/0325text/risk-control-dashboard/.delivery/risk-control-dashboard",
+  "rationale": [
+    "用户明确要求结合 p2c skills 完成页面搭建",
+    "输入为产品截图+离线 HTML 样例，非完整 Figma 1:1 设计稿",
+    "要求用 LUI PC3.0 组合生成可运行页面，样式参照财务数据看板密度",
+    "仓库信息暂缺，greenfield Vue 本地预览"
+  ],
+  "not_d2c_because": "无 Figma node-id / 完整设计稿像素还原要求"
+}

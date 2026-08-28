@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "detected_at": "2026-08-27T11:05:00Z",
+  "framework": "vue",
+  "framework_major": 2,
+  "ui": "lui",
+  "lui_package": "@lui/lui-ui",
+  "prefix": "el-",
+  "confidence": 0.95
+}

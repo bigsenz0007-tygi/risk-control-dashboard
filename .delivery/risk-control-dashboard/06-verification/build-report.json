@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T19:25:00+08:00",
+  "result": "pass",
+  "command": "npm run build",
+  "status": "success"
+}

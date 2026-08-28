@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "scanned_at": "2026-08-27T11:05:00Z",
+  "project_root": "/Users/zhouxingzi1/Desktop/text/0325text/risk-control-dashboard",
+  "framework": "vue2",
+  "build": "vite",
+  "ui_library": "@lui/lui-ui",
+  "ui_version_hint": "^2.15.29",
+  "delivery_strategy": "greenfield",
+  "existing_pages": [],
+  "notes": [
+    "仓库信息未定，greenfield 本地项目",
+    "组件用法参照 lui-pc-demo（同工作区 Vue2+LUI 样板）"
+  ]
+}

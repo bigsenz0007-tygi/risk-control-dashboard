@@ -1,0 +1,209 @@
+@import './preview.scss';
+@import './risk-dashboard.scss';
+@import './offline-charts.scss';
+
+/* 离线快照页：复用 risk-page 布局，仅补充导出专用块 */
+.offline-snap.snap-head-block {
+  gap: var(--lui-space-md);
+}
+
+.snap-head h1 {
+  margin: 0 0 8px;
+  font-family: var(--lui-font-sans);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: var(--lui-font-weight-medium);
+  color: var(--lui-text-main);
+}
+
+.snap-head__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--lui-space-md);
+}
+
+.snap-head .range {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--lui-text-regular);
+}
+
+.snap-head .meta {
+  flex-shrink: 0;
+  font-size: var(--lui-font-size-aux);
+  line-height: var(--lui-line-height-aux);
+  color: var(--lui-text-secondary);
+  white-space: nowrap;
+}
+
+.snap-head .note {
+  margin: 8px 0 0;
+  font-size: var(--lui-font-size-aux);
+  line-height: var(--lui-line-height-aux);
+  color: var(--lui-text-secondary);
+}
+
+/* KPI 标签：离线 HTML 无 Element Tag，样式对齐 .kpi-tag--pending / 准实时 */
+.offline-snap .offline-tag {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 8px;
+  border: 1px solid var(--lui-primary);
+  background: var(--lui-primary-light-9);
+  color: var(--lui-primary);
+  font-size: var(--lui-font-size-aux);
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.offline-snap .offline-tag.is-pending {
+  background: #878c9e;
+  border-color: #878c9e;
+  color: #fff;
+}
+
+/* 表格：纯 HTML table，视觉对齐 .table-card .el-table */
+.offline-snap .data-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: var(--lui-font-number);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--lui-text-regular);
+}
+
+.offline-snap .data-table th {
+  background: var(--lui-table-header-bg) !important;
+  color: #525765 !important;
+  font-weight: 400 !important;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: left;
+  padding: 16px 12px;
+  height: 48px;
+  border-bottom: 1px solid var(--lui-table-divider);
+  white-space: nowrap;
+}
+
+.offline-snap .data-table td {
+  padding: 16px 12px;
+  height: 54px;
+  border-bottom: 1px solid var(--lui-table-divider);
+  color: #525765;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.offline-snap .data-table td.num,
+.offline-snap .data-table .rd-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.offline-snap .table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.offline-snap .table-card__foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--lui-text-secondary);
+}
+
+/* 分段 Tab：离线可交互 */
+.offline-snap .biz-tabs--interactive,
+.offline-snap .biz-tabs--static {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: 2px;
+  border-radius: var(--lui-radius-base);
+  background: var(--lui-bg-fill);
+}
+
+.offline-snap .biz-tabs--interactive .biz-tabs__item,
+.offline-snap .biz-tabs--static .biz-tabs__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--lui-text-regular);
+}
+
+.offline-snap .biz-tabs--interactive .biz-tabs__item {
+  cursor: pointer;
+  user-select: none;
+}
+
+.offline-snap .biz-tabs--interactive .biz-tabs__item:not(.is-active):hover {
+  color: var(--lui-primary);
+}
+
+.offline-snap .biz-tabs--interactive .biz-tabs__item.is-active,
+.offline-snap .biz-tabs--static .biz-tabs__item.is-active {
+  background: #fff;
+  color: var(--lui-primary);
+  font-weight: var(--lui-font-weight-medium);
+  box-shadow: 0 1px 2px rgba(35, 37, 43, 0.08);
+}
+
+.offline-snap .data-table th.is-sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 日/周表头叠放：切换时列宽不变 */
+.offline-snap .th-label-wrap {
+  display: inline-grid;
+  vertical-align: middle;
+}
+
+.offline-snap .th-label-wrap .th-label {
+  grid-area: 1 / 1;
+}
+
+.offline-snap .th-sort {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-left: 4px;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+.offline-snap .th-sort__up,
+.offline-snap .th-sort__down {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--lui-text-disabled);
+  mask: url('../assets/icons/sort-triangle.svg') center / contain no-repeat;
+  -webkit-mask: url('../assets/icons/sort-triangle.svg') center / contain no-repeat;
+}
+
+.offline-snap .th-sort__down {
+  transform: scaleY(-1);
+}
+
+.offline-snap .th-sort__up.is-active,
+.offline-snap .th-sort__down.is-active {
+  background-color: var(--lui-primary);
+}

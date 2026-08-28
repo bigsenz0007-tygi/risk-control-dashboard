@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T19:25:00+08:00",
+  "result": "pass",
+  "level": 2,
+  "cases": [
+    { "id": "AC-001", "status": "pass", "note": "页面默认渲染 KPI/图表/表格" },
+    { "id": "AC-002", "status": "pass", "note": "查询/重置交互已实现（Mock）" },
+    { "id": "AC-003", "status": "pass", "note": "exportOfflineHtml 生成 Blob 下载" },
+    { "id": "AC-004", "status": "pass", "note": "按日/按周 + 分页" },
+    { "id": "AC-005", "status": "pass", "note": "环比 up/down 着色" }
+  ],
+  "build": {
+    "command": "npm run build",
+    "status": "pass"
+  },
+  "note": "无 Playwright 环境；Level2 以 build + 代码路径审阅为准"
+}

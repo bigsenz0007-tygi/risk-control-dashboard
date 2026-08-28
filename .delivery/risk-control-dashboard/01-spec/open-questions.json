@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "items": [
+    {
+      "id": "OQ-001",
+      "priority": 1,
+      "question": "确认目标 Git 仓库、默认分支及合入策略",
+      "status": "open",
+      "blocks_lock": false,
+      "note": "本期本地预览，确认后再迁入"
+    },
+    {
+      "id": "OQ-002",
+      "priority": 2,
+      "question": "准确量/处置量/落罚量上线后的接口字段与计算口径",
+      "status": "open",
+      "blocks_lock": false
+    },
+    {
+      "id": "OQ-003",
+      "priority": 3,
+      "question": "离线 HTML 是否需包含每日策略指标表格（样例仅含 KPI+图表）",
+      "status": "decided",
+      "decision": "首期对齐样例：仅 KPI+漏斗+趋势；表格不下发",
+      "blocks_lock": false
+    }
+  ]
+}

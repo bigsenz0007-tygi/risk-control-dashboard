@@ -1,0 +1,39 @@
+{
+  "feature_id": "risk-control-dashboard",
+  "project_root": "/Users/zhouxingzi1/Desktop/text/0325text/risk-control-dashboard",
+  "mode": "p2c",
+  "delivery_strategy": "greenfield",
+  "feature_name": "风控看板-风险监控与每日策略指标",
+  "product_owner": "待确认",
+  "scope": {
+    "in": [
+      "筛选查询区（风险场景/策略名称/策略编码/当前状态/版本号/日期范围）",
+      "下载离线看板（生成静态 HTML）",
+      "重置与查询",
+      "KPI 指标卡（调用量/命中量/准确量/处置量/落罚量，含准实时与待上线态）",
+      "风险全链路转化视图（漏斗）",
+      "核心指标趋势图",
+      "每日策略指标表格（按日/按周切换、排序、分页）"
+    ],
+    "out": [
+      "真实后端联调与权限中台接入",
+      "准确量/处置量/落罚量完整上线业务逻辑（本期展示待上线）",
+      "目标业务仓合入（仓库信息确认后再迁入）"
+    ]
+  },
+  "tech": {
+    "framework": "vue2",
+    "ui": "@lui/lui-ui (LUI PC3.0)",
+    "note": "目标业务仓未定；本期本地 greenfield 预览，确认仓库信息后再调整路径与依赖"
+  },
+  "references": {
+    "prd_images": "00-intake/prd-images/",
+    "offline_html_sample": "00-intake/refs/offline-dashboard-sample.html",
+    "style_ref": "00-intake/refs/finance-cockpit-style.png（财务计费管理工作台密度/筛选卡/表格）"
+  },
+  "open_deploy": {
+    "target_repo": null,
+    "target_branch": null,
+    "push_when": "本地确认后由用户指定仓库与分支再迁入"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "mode": "p2c",
+  "current_stage": "S8",
+  "status": "completed",
+  "stages": {
+    "S0": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:50:30Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:50:30Z",
+          "text": "intake+mode+p2c-session+prd-images"
+        }
+      ],
+      "key_files": [
+        "00-intake/project-config.json"
+      ]
+    },
+    "S1": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:51:27Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:50:30Z",
+          "text": "spec compiling"
+        },
+        {
+          "at": "2026-08-27T10:51:27Z",
+          "text": "feature-spec locked"
+        }
+      ],
+      "key_files": [
+        "01-spec/spec-lint-report.json"
+      ]
+    },
+    "S2": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:52:00Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:51:28Z",
+          "text": "repo scan"
+        },
+        {
+          "at": "2026-08-27T10:52:00Z",
+          "text": "component-registry"
+        }
+      ],
+      "key_files": [
+        "02-repo/component-registry.json"
+      ]
+    },
+    "S3": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:52:00Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:52:00Z",
+          "text": "reference-contract"
+        },
+        {
+          "at": "2026-08-27T10:52:00Z",
+          "text": "reference-contract"
+        }
+      ],
+      "key_files": [
+        "03-ui-source/reference-contract.json"
+      ]
+    },
+    "S4": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:55:24Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:52:00Z",
+          "text": "implementation-contract"
+        },
+        {
+          "at": "2026-08-27T10:55:24Z",
+          "text": "implementation-contract+scope"
+        }
+      ],
+      "key_files": [
+        "04-contract/change-scope.json"
+      ]
+    },
+    "S5": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:57:06Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:56:20Z",
+          "text": "vue+lui implementation"
+        },
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "preview runnable"
+        }
+      ],
+      "key_files": [
+        "05-implementation/replacement-map.json"
+      ]
+    },
+    "S6": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:57:06Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "functional"
+        },
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "functional mock report"
+        }
+      ],
+      "key_files": [
+        "06-verification/functional-report.json"
+      ]
+    },
+    "S7": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:57:06Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "visual"
+        },
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "reference consistency"
+        }
+      ],
+      "key_files": [
+        "06-verification/visual-report.json"
+      ]
+    },
+    "S8": {
+      "status": "done",
+      "updated_at": "2026-08-27T10:57:06Z",
+      "notes": [
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "delivery"
+        },
+        {
+          "at": "2026-08-27T10:57:06Z",
+          "text": "local preview delivered; push pending repo confirm"
+        }
+      ],
+      "key_files": [
+        "07-changes/delivery-report.md"
+      ]
+    }
+  },
+  "risk_items": [],
+  "human_confirmations": [],
+  "decisions": [],
+  "legacy_migration": null,
+  "created_at": "2026-08-27T10:48:40Z",
+  "updated_at": "2026-08-27T10:57:06Z"
+}

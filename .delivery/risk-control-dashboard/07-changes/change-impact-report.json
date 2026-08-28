@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T19:25:00+08:00",
+  "out_of_scope_files": [],
+  "changed_files": [
+    "package.json",
+    "vite.config.js",
+    "index.html",
+    "src/main.js",
+    "src/App.vue",
+    "src/pages/RiskDashboard/RiskDashboard.vue",
+    "src/pages/RiskDashboard/RiskDashboard.css",
+    "src/components/FunnelChart.vue",
+    "src/components/TrendChart.vue",
+    "src/utils/exportOfflineHtml.js",
+    "src/mock/dashboardData.js"
+  ],
+  "in_scope": true,
+  "protected_touched": false
+}

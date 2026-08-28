@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "cases": [
+    {
+      "id": "AC-001",
+      "flow": "FLOW-DASHBOARD-QUERY",
+      "title": "默认进入展示 KPI 与图表",
+      "steps": ["打开风控看板", "可见 5 张 KPI 卡、漏斗、趋势图、每日策略指标表"],
+      "expect": "调用量/命中量为数值；准确/处置/落罚为待上线"
+    },
+    {
+      "id": "AC-002",
+      "flow": "FLOW-DASHBOARD-QUERY",
+      "title": "查询与重置",
+      "steps": ["修改策略名称", "点击查询", "点击重置"],
+      "expect": "查询后数据按 Mock 过滤逻辑变化；重置后筛选恢复全部"
+    },
+    {
+      "id": "AC-003",
+      "flow": "FLOW-OFFLINE-EXPORT",
+      "title": "下载离线看板",
+      "steps": ["点击下载离线看板"],
+      "expect": "下载 .html 文件，打开后可见标题、筛选摘要、KPI、漏斗、趋势"
+    },
+    {
+      "id": "AC-004",
+      "flow": "FLOW-DAILY-TABLE",
+      "title": "按日/按周与分页",
+      "steps": ["切换按周", "切换回按日", "切换分页"],
+      "expect": "表格数据与分页控件响应"
+    },
+    {
+      "id": "AC-005",
+      "flow": "FLOW-DAILY-TABLE",
+      "title": "环比颜色",
+      "steps": ["查看调用量环比昨日列"],
+      "expect": "上涨红色↑，下跌绿色↓"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+/* 漏斗 / 趋势图：与 FunnelChart.vue、TrendChart.vue scoped 样式一致，供离线导出复用 */
+.funnel-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.funnel-chart svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.trend-chart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.trend-chart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  margin-top: 16px;
+  padding: 0 24px 24px;
+  font-family: var(--lui-font-sans);
+  font-size: 14px;
+  line-height: 14px;
+  color: #525765;
+}
+
+.trend-chart__legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trend-chart__legend em {
+  font-style: normal;
+}
+
+.trend-chart__legend .is-muted {
+  color: #babec7;
+}
+
+.lg-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.trend-chart__svg-wrap {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.trend-chart__svg-wrap svg {
+  display: block;
+}
+
+.trend-chart__tip--dark {
+  position: absolute;
+  background: rgba(35, 37, 43, 0.92);
+  box-shadow: 0 4px 16px rgba(35, 37, 43, 0.16);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  z-index: 10;
+  pointer-events: none;
+  min-width: 168px;
+  color: #ffffff;
+}
+
+.trend-chart__tip--dark::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: var(--tip-arrow-top, 16px);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid rgba(35, 37, 43, 0.92);
+}
+
+.trend-chart__tip--dark.trend-chart__tip--flip::before {
+  left: auto;
+  right: -6px;
+  border-right: none;
+  border-left: 6px solid rgba(35, 37, 43, 0.92);
+}
+
+.tip-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  padding-bottom: 0;
+  border: none;
+}
+
+.tip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.tip-row:last-child {
+  margin-bottom: 0;
+}
+
+.tip-row span {
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tip-row i {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.tip-row b {
+  color: #ffffff;
+  font-weight: 400;
+  font-family: var(--lui-font-number);
+  font-variant-numeric: tabular-nums;
+}

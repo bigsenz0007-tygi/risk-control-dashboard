@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "mode": "p2c",
+  "updated_at": "2026-08-27T19:00:00+08:00",
+  "page_pattern": "filter-kpi-chart-table",
+  "pages_count": 1,
+  "references": [
+    {
+      "id": "REF-FIG1",
+      "type": "screenshot",
+      "source": "00-intake/prd-images/fig1-risk-dashboard-top.png",
+      "page_id": "riskDashboard",
+      "pattern": "filter-kpi-chart",
+      "authority": ["filter-layout", "kpi-cards", "funnel", "trend", "pending-states", "action-buttons"],
+      "do_not_copy": ["pixel-perfect", "exact-chart-engine"]
+    },
+    {
+      "id": "REF-FIG2",
+      "type": "screenshot",
+      "source": "00-intake/prd-images/fig2-daily-strategy-table.png",
+      "page_id": "riskDashboard",
+      "pattern": "table-pagination",
+      "authority": ["table-columns", "dod-colors", "granularity-toggle", "pagination"],
+      "do_not_copy": ["exact-row-values-beyond-mock"]
+    },
+    {
+      "id": "REF-OFFLINE-HTML",
+      "type": "html-sample",
+      "source": "00-intake/refs/offline-dashboard-sample.html",
+      "authority": ["offline-html-structure", "kpi-snapshot", "funnel-svg", "trend-svg-interaction"],
+      "do_not_copy": ["hardcoded-filename-only"]
+    },
+    {
+      "id": "REF-FINANCE-STYLE",
+      "type": "screenshot",
+      "source": "00-intake/refs/finance-cockpit-style.png",
+      "authority": ["filter-card-density", "table-card-density", "lui-form-button-spacing", "page-bg"],
+      "do_not_copy": ["billing-business-fields", "workbench-header"]
+    }
+  ],
+  "authority_order": [
+    "01-spec/feature-spec.json",
+    "REF-FIG1",
+    "REF-FIG2",
+    "REF-OFFLINE-HTML",
+    "REF-FINANCE-STYLE",
+    "LUI PC3.0"
+  ]
+}

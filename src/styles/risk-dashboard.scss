@@ -1,0 +1,444 @@
+/* 风控看板页级补充：驾驶舱 / 图表（查询·表格·KPI 基座见 preview.scss） */
+
+.cockpit-panel {
+  background: #fff;
+  border: 1px solid var(--lui-border);
+  border-radius: var(--lui-radius-base);
+  padding: var(--lui-space-md);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.cockpit-panel__head {
+  display: flex;
+  align-items: center;
+  gap: var(--lui-space-md);
+  margin-bottom: var(--lui-space-md);
+  min-height: var(--lui-control-height);
+}
+
+.cockpit-panel__title-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--lui-space-xs);
+  min-width: 0;
+}
+
+.cockpit-panel__title {
+  margin: 0;
+  font-family: var(--lui-font-sans);
+  font-size: var(--lui-font-size-module);
+  line-height: var(--lui-line-height-module);
+  font-weight: var(--lui-font-weight-medium);
+  color: var(--lui-text-main);
+}
+
+.cockpit-panel__title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  margin-right: var(--lui-space-xs);
+  vertical-align: -2px;
+  border-radius: 1px;
+  background: var(--lui-primary);
+}
+
+.cockpit-panel__hint {
+  font-size: var(--lui-font-size-aux);
+  line-height: var(--lui-line-height-aux);
+  color: var(--lui-text-secondary);
+  white-space: nowrap;
+}
+
+.cockpit-panel .kpi-row--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 1199px) {
+  .cockpit-panel .kpi-row--5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.kpi-card.is-pending {
+  background: linear-gradient(0deg, #fafbfd 0%, #f3f5f9 100%);
+  border-color: rgba(134, 141, 159, 0.16);
+}
+
+.kpi-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--lui-space-xs);
+  width: 100%;
+  min-height: 22px;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.kpi-card__head > .el-tag {
+  margin-left: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+/* 待上线：字号与准实时一致（el-tag mini），颜色参照设计稿 */
+.kpi-card__head > .el-tag.kpi-tag--pending {
+  background-color: #878c9e;
+  border-color: #878c9e;
+  color: #ffffff;
+}
+
+.kpi-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--lui-space-xs);
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: visible;
+}
+
+.kpi-card,
+.kpi-card__head,
+.cockpit-panel,
+.chart-card__title {
+  overflow: visible;
+}
+
+.kpi-card__head .kpi-card__title {
+  margin-bottom: 0;
+}
+
+.kpi-card__help {
+  flex-shrink: 0;
+}
+
+.chart-card--funnel {
+  padding-bottom: 0;
+}
+
+.chart-card--funnel .chart-card__plot {
+  margin-bottom: 0;
+}
+
+.kpi-card__value {
+  display: flex;
+  align-items: baseline;
+  min-height: var(--lui-line-height-kpi);
+  flex-shrink: 0;
+}
+
+.kpi-card__num {
+  font-family: var(--lui-font-number);
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.kpi-card__unit {
+  font-family: var(--lui-font-sans);
+  font-size: var(--lui-font-size-body);
+  line-height: var(--lui-line-height-body);
+  font-weight: var(--lui-font-weight-regular);
+  color: var(--lui-text-main);
+  align-self: flex-end;
+  margin-left: 2px;
+  padding-bottom: 4px;
+}
+
+.kpi-card.is-pending .kpi-card__title,
+.kpi-card.is-pending .kpi-card__value,
+.kpi-card.is-pending .kpi-card__unit {
+  color: var(--lui-text-disabled);
+}
+
+.kpi-card__sub {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--lui-space-md);
+  margin-top: 0;
+  min-height: var(--lui-line-height-aux);
+  flex-shrink: 0;
+  font-size: var(--lui-font-size-aux);
+  line-height: var(--lui-line-height-aux);
+}
+
+.kpi-card__mom {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.kpi-card__stat {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lui-space-xs);
+}
+
+.kpi-card__mom .kpi-card__sub-label {
+  margin-right: var(--lui-space-xs);
+}
+
+.kpi-card__sub-label {
+  color: var(--lui-text-secondary);
+  font-weight: var(--lui-font-weight-regular);
+}
+
+.kpi-card__mom-value {
+  font-family: var(--lui-font-number);
+  font-weight: var(--lui-font-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-card__mom.is-up .kpi-card__mom-value {
+  color: var(--lui-success);
+}
+
+.kpi-card__mom.is-down .kpi-card__mom-value {
+  color: var(--lui-danger);
+}
+
+.kpi-card__mom.is-flat .kpi-card__mom-value {
+  color: var(--lui-text-secondary);
+}
+
+.kpi-card__sub-value {
+  font-family: var(--lui-font-number);
+  font-weight: var(--lui-font-weight-regular);
+  color: var(--lui-text-main);
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-card__arrow {
+  display: block;
+  width: 12px;
+  height: 9px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.kpi-card__arrow.is-down {
+  transform: scaleY(-1);
+}
+
+.kpi-card.is-pending .kpi-card__sub-label,
+.kpi-card.is-pending .kpi-card__sub-value {
+  color: var(--lui-text-disabled);
+}
+
+.kpi-card.is-pending .kpi-card__arrow {
+  opacity: 0.4;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: var(--lui-space-md);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1199px) {
+  .chart-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.chart-card {
+  background: #fff;
+  border: 1px solid var(--lui-border);
+  border-radius: var(--lui-radius-base);
+  padding: var(--lui-space-md);
+  box-sizing: border-box;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card__plot {
+  height: var(--chart-plot-height);
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.chart-card__plot .funnel-chart {
+  height: 100%;
+  width: 100%;
+}
+
+.chart-card--trend {
+  padding-bottom: 0;
+}
+
+.chart-card--trend .trend-chart__svg-wrap {
+  height: var(--chart-plot-height);
+  flex: none;
+}
+
+.chart-card__title {
+  margin: 0 0 var(--lui-space-md);
+  font-family: var(--lui-font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: var(--lui-font-weight-medium);
+  color: var(--lui-text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lui-space-xs);
+}
+
+.chart-card__title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  border-radius: 1px;
+  background: var(--lui-primary);
+  flex-shrink: 0;
+}
+
+.chart-card__title .chart-card__help {
+  flex-shrink: 0;
+}
+
+.rd-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.rd-dod {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.rd-dod__arrow {
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.rd-dod.is-up {
+  color: var(--lui-success);
+}
+
+.rd-dod.is-down {
+  color: var(--lui-danger);
+}
+
+.rd-dod.is-flat {
+  color: var(--lui-text-secondary);
+}
+
+/* ---------- 图1：DatePicker 面板对齐 LUI PC3.0（双月 / 今日蓝点） ---------- */
+.lui-daterange-popper.el-picker-panel,
+.lui-daterange-popper.el-date-range-picker {
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: var(--lui-shadow-dropdown) !important;
+  margin-top: 4px !important;
+  font-family: var(--lui-font-sans);
+}
+
+.lui-daterange-popper .el-date-range-picker__content {
+  padding: 12px 15px 0;
+}
+
+/* 月份标题：绝对居中，完整展示，不与星期行重叠 */
+.lui-daterange-popper .el-date-range-picker__header {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  overflow: visible;
+}
+
+.lui-daterange-popper .el-date-range-picker__header div {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  top: 0;
+  margin: 0 !important;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.lui-daterange-popper .el-date-range-picker__header .el-picker-panel__icon-btn {
+  position: relative;
+  z-index: 1;
+}
+
+.lui-daterange-popper .el-date-table th {
+  font-family: var(--lui-font-sans);
+}
+
+.lui-daterange-popper .el-date-table td.today span {
+  color: var(--lui-primary) !important;
+  font-weight: 500;
+}
+
+.lui-daterange-popper .el-date-table td.today span::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: var(--lui-primary);
+  border-radius: 50%;
+}
+
+.lui-daterange-popper .el-date-table td.available:hover span {
+  background-color: var(--lui-bg-fill);
+  border-radius: 2px;
+}
+
+/* 查询区输入/日期：圆角 8、hover/focus 对齐 LUI PC3.0（图2 蓝框 + 浅蓝外描边） */
+.risk-page .query-grid .el-input__inner,
+.risk-page .query-grid .el-range-editor.el-input__inner {
+  border-radius: var(--lui-radius-base) !important;
+  border-color: var(--lui-border-form);
+  outline: none !important;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.risk-page .query-grid .el-input__inner:hover,
+.risk-page .query-grid .el-range-editor.el-input__inner:hover {
+  border-color: #fff !important;
+  background-color: #fff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(60, 110, 240, 0.15) !important;
+}
+
+.risk-page .query-grid .el-input.is-focus .el-input__inner,
+.risk-page .query-grid .el-input__inner:focus,
+.risk-page .query-grid .el-range-editor.is-active,
+.risk-page .query-grid .el-range-editor.is-active:hover,
+.risk-page .query-grid .el-date-editor.is-active.el-input__inner {
+  border-color: var(--lui-primary) !important;
+  background-color: #fff !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(60, 110, 240, 0.15) !important;
+}
+
+/* 日期范围内部 input 不再单独铺底色，避免 hover 出现分段色块 */
+.risk-page .query-grid .el-range-editor .el-range-input,
+.risk-page .query-grid .el-range-editor .el-range-input:hover,
+.risk-page .query-grid .el-date-editor.is-active .el-range-input {
+  background-color: transparent !important;
+}
+
+.risk-page .query-grid .el-range-separator {
+  color: var(--lui-text-main);
+  width: auto;
+  padding: 0 4px;
+}

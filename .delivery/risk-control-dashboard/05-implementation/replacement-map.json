@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T19:20:00+08:00",
+  "from_contract": "04-contract/implementation-contract.json",
+  "replacements": [
+    {
+      "region": "filter-panel",
+      "from": "screenshot REF-FIG1 + finance filter density",
+      "to": "el-form / el-select / el-input / el-date-picker / el-button"
+    },
+    {
+      "region": "kpi-cards",
+      "from": "screenshot KPI row",
+      "to": "custom cards + el-tag + el-tooltip"
+    },
+    {
+      "region": "funnel-chart",
+      "from": "offline HTML SVG funnel",
+      "to": "src/components/FunnelChart.vue"
+    },
+    {
+      "region": "trend-chart",
+      "from": "offline HTML SVG trend",
+      "to": "src/components/TrendChart.vue"
+    },
+    {
+      "region": "daily-strategy-table",
+      "from": "screenshot REF-FIG2",
+      "to": "el-radio-button + el-table + el-pagination"
+    },
+    {
+      "region": "offline-export",
+      "from": "00-intake/refs/offline-dashboard-sample.html",
+      "to": "src/utils/exportOfflineHtml.js"
+    }
+  ]
+}

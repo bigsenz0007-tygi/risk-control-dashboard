@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T11:05:00Z",
+  "source": "lui-pc3 + greenfield plan",
+  "components": [
+    { "id": "LUI-FORM", "name": "el-form / el-form-item", "usage": "筛选区" },
+    { "id": "LUI-SELECT", "name": "el-select / el-option", "usage": "风险场景、当前状态" },
+    { "id": "LUI-INPUT", "name": "el-input", "usage": "策略名称、策略编码、版本号" },
+    { "id": "LUI-DATE", "name": "el-date-picker", "usage": "日期范围" },
+    { "id": "LUI-BUTTON", "name": "el-button", "usage": "下载离线看板/重置/查询" },
+    { "id": "LUI-CARD", "name": "el-card", "usage": "筛选卡、KPI、图表、表格容器（可用原生白底卡对齐财务看板密度）" },
+    { "id": "LUI-TAG", "name": "el-tag", "usage": "准实时 / 待上线" },
+    { "id": "LUI-RADIO", "name": "el-radio-group / el-radio-button", "usage": "按日/按周" },
+    { "id": "LUI-TABLE", "name": "el-table / el-table-column", "usage": "每日策略指标" },
+    { "id": "LUI-PAGINATION", "name": "el-pagination", "usage": "表格分页" },
+    { "id": "LUI-TOOLTIP", "name": "el-tooltip", "usage": "KPI 说明" },
+    { "id": "CUSTOM-FUNNEL", "name": "FunnelChart SVG", "usage": "风险全链路转化视图" },
+    { "id": "CUSTOM-TREND", "name": "TrendChart SVG", "usage": "核心指标趋势" },
+    { "id": "UTIL-OFFLINE", "name": "exportOfflineHtml", "usage": "静态 HTML 生成下载" }
+  ]
+}

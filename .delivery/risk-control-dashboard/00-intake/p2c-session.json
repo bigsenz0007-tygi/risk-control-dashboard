@@ -1,0 +1,16 @@
+{
+  "mode": "active",
+  "feature_id": "risk-control-dashboard",
+  "entered_at": "2026-08-27T10:48:40Z",
+  "orchestrator": "delivery-orchestrator",
+  "branch": "p2c-mode-orchestrator",
+  "authority_order": [
+    "user_explicit",
+    "feature-spec",
+    "component_reference",
+    "page_reference",
+    "repo_components",
+    "lui_design_system",
+    "ai_judgment"
+  ]
+}

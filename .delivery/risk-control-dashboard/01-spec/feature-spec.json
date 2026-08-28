@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "meta": {
+    "feature_id": "risk-control-dashboard",
+    "feature_name": "风控看板-风险监控与每日策略指标",
+    "product_owner": "待确认",
+    "mode": "p2c",
+    "version": "0.1.0",
+    "source": [
+      "00-intake/prd-images/fig1-risk-dashboard-top.png",
+      "00-intake/prd-images/fig2-daily-strategy-table.png",
+      "00-intake/refs/offline-dashboard-sample.html",
+      "00-intake/refs/finance-cockpit-style.png"
+    ],
+    "locked": true,
+    "locked_at": "2026-08-27T11:00:00Z",
+    "created_at": "2026-08-27T18:50:00+08:00",
+    "updated_at": "2026-08-27T18:50:00+08:00"
+  },
+  "decision_log_ref": "01-spec/decision-log.json",
+  "open_questions_ref": "01-spec/open-questions.json",
+  "open_questions": ["OQ-001", "OQ-002", "OQ-003"],
+  "actors": [
+    {
+      "id": "ACT-RISK-OPS",
+      "name": "风控运营",
+      "description": "查看策略调用/命中指标、筛选策略、下载离线看板"
+    },
+    {
+      "id": "ACT-RISK-MGR",
+      "name": "风控负责人",
+      "description": "关注全链路转化与核心趋势，复盘每日策略指标"
+    }
+  ],
+  "flows": [
+    {
+      "id": "FLOW-DASHBOARD-QUERY",
+      "name": "看板筛选查询主路径",
+      "type": "primary",
+      "actor": "ACT-RISK-OPS",
+      "steps": [
+        { "step": 1, "action": "进入风控看板页", "state_after": "ST-DASHBOARD" },
+        { "step": 2, "action": "填写筛选条件（风险场景/策略名称/策略编码/当前状态/版本号/日期范围）", "state_after": "ST-DASHBOARD-FILTERING" },
+        { "step": 3, "action": "点击查询，刷新 KPI、漏斗、趋势、表格", "state_after": "ST-DASHBOARD-FILTERED" },
+        { "step": 4, "action": "点击重置，清空筛选并恢复默认数据", "state_after": "ST-DASHBOARD" }
+      ]
+    },
+    {
+      "id": "FLOW-OFFLINE-EXPORT",
+      "name": "下载离线看板",
+      "type": "primary",
+      "actor": "ACT-RISK-OPS",
+      "steps": [
+        { "step": 1, "action": "在当前筛选条件下点击「下载离线看板」", "state_after": "ST-DASHBOARD" },
+        { "step": 2, "action": "浏览器下载独立静态 HTML（含 KPI、漏斗、趋势快照与筛选摘要）", "state_after": "ST-DASHBOARD" }
+      ]
+    },
+    {
+      "id": "FLOW-DAILY-TABLE",
+      "name": "每日策略指标浏览",
+      "type": "primary",
+      "actor": "ACT-RISK-MGR",
+      "steps": [
+        { "step": 1, "action": "切换按日/按周维度", "state_after": "ST-TABLE-GRANULARITY" },
+        { "step": 2, "action": "对日期/调用量/命中量等列排序", "state_after": "ST-TABLE-SORTED" },
+        { "step": 3, "action": "分页浏览", "state_after": "ST-TABLE-PAGED" }
+      ]
+    }
+  ],
+  "states": [
+    { "id": "ST-DASHBOARD", "name": "默认看板", "description": "默认筛选为全部，展示 Mock 汇总数据" },
+    { "id": "ST-DASHBOARD-FILTERING", "name": "筛选编辑中", "description": "用户修改筛选但尚未查询" },
+    { "id": "ST-DASHBOARD-FILTERED", "name": "已查询", "description": "按条件过滤后的看板数据" },
+    { "id": "ST-TABLE-GRANULARITY", "name": "表格粒度切换", "description": "按日或按周" },
+    { "id": "ST-TABLE-SORTED", "name": "表格已排序", "description": "指定列升/降序" },
+    { "id": "ST-TABLE-PAGED", "name": "表格分页", "description": "当前页与 pageSize" },
+    { "id": "ST-KPI-PENDING", "name": "指标待上线", "description": "准确量/处置量/落罚量展示待上线灰态" }
+  ],
+  "fields": [
+    { "id": "FLD-RISK-SCENE", "name": "风险场景", "type": "select", "default": "全部", "options": ["全部", "交易风控", "账户风控", "营销风控"] },
+    { "id": "FLD-STRATEGY-NAME", "name": "策略名称", "type": "string", "placeholder": "请输入" },
+    { "id": "FLD-STRATEGY-CODE", "name": "策略编码", "type": "string", "placeholder": "请输入" },
+    { "id": "FLD-STATUS", "name": "当前状态", "type": "select", "default": "全部", "options": ["全部", "生效中", "已停用", "灰度中"] },
+    { "id": "FLD-VERSION", "name": "版本号", "type": "string", "placeholder": "请输入" },
+    { "id": "FLD-DATE-RANGE", "name": "日期范围", "type": "daterange", "placeholder": ["开始日期", "结束日期"] },
+    { "id": "FLD-KPI-CALLS", "name": "调用量", "type": "number", "realtime": true },
+    { "id": "FLD-KPI-HITS", "name": "命中量", "type": "number", "realtime": true, "sub": "命中率" },
+    { "id": "FLD-KPI-ACCURACY", "name": "准确量", "type": "pending", "sub": "准确率" },
+    { "id": "FLD-KPI-HANDLE", "name": "处置量", "type": "pending", "sub": "处置率" },
+    { "id": "FLD-KPI-PENALTY", "name": "落罚量", "type": "pending", "sub": "落罚率" },
+    { "id": "FLD-TABLE-GRANULARITY", "name": "表格粒度", "type": "enum", "options": ["按日", "按周"], "default": "按日" },
+    { "id": "FLD-COL-DATE", "name": "日期", "type": "date" },
+    { "id": "FLD-COL-CODE", "name": "策略编码", "type": "string" },
+    { "id": "FLD-COL-NAME", "name": "策略名称", "type": "string" },
+    { "id": "FLD-COL-VER", "name": "版本号", "type": "string" },
+    { "id": "FLD-COL-SCENE", "name": "风险场景", "type": "string" },
+    { "id": "FLD-COL-TYPE", "name": "策略类型", "type": "string" },
+    { "id": "FLD-COL-CALLS", "name": "调用量", "type": "number", "link_style": true, "sortable": true },
+    { "id": "FLD-COL-CALLS-DOD", "name": "调用量环比昨日", "type": "percent_delta" },
+    { "id": "FLD-COL-HITS", "name": "命中量", "type": "number", "link_style": true, "sortable": true },
+    { "id": "FLD-COL-HITS-DOD", "name": "命中量环比昨日", "type": "percent_delta" },
+    { "id": "FLD-COL-HIT-RATE", "name": "命中率", "type": "percent" }
+  ],
+  "permissions": [
+    { "id": "PERM-VIEW", "actor": "ACT-RISK-OPS", "action": "view_dashboard", "default": true },
+    { "id": "PERM-EXPORT", "actor": "ACT-RISK-OPS", "action": "download_offline_html", "default": true }
+  ],
+  "exceptions": [
+    { "id": "EX-EMPTY-TABLE", "when": "筛选无匹配策略", "ui": "表格空态" },
+    { "id": "EX-PENDING-KPI", "when": "准确/处置/落罚未上线", "ui": "灰态「待上线」标签与数值" },
+    { "id": "EX-EXPORT-OK", "when": "导出成功", "ui": "浏览器触发文件下载" }
+  ],
+  "ui_pages": [
+    {
+      "page_id": "riskDashboard",
+      "title": "风控看板",
+      "pattern": "filter-kpi-chart-table",
+      "regions": [
+        "filter-panel",
+        "kpi-cards",
+        "funnel-chart",
+        "trend-chart",
+        "daily-strategy-table"
+      ]
+    }
+  ],
+  "non_functional": {
+    "offline_html": {
+      "trigger": "下载离线看板",
+      "format": "standalone HTML",
+      "content": ["筛选摘要", "KPI 卡片", "漏斗 SVG", "趋势 SVG + 交互提示", "静态说明文案"],
+      "sample_ref": "00-intake/refs/offline-dashboard-sample.html"
+    },
+    "style": {
+      "ui_lib": "LUI PC3.0",
+      "density_ref": "财务计费管理工作台筛选卡+表格密度",
+      "bg": "#F5F5F5",
+      "card_radius": "4px",
+      "primary": "#3C6EF0"
+    }
+  }
+}

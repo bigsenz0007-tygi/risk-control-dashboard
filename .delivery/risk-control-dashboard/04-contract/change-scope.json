@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T19:05:00+08:00",
+  "contract_ref": "04-contract/implementation-contract.json",
+  "project_root": "/Users/zhouxingzi1/Desktop/text/0325text/risk-control-dashboard",
+  "allowed_directories": [
+    "src/**",
+    "public/**",
+    ".delivery/**"
+  ],
+  "allowed_globs": [
+    "src/**",
+    "index.html",
+    "package.json",
+    "package-lock.json",
+    "vite.config.js",
+    ".npmrc",
+    ".gitignore",
+    "README.md"
+  ],
+  "allowed_files": [
+    "index.html",
+    "package.json",
+    "package-lock.json",
+    "vite.config.js",
+    ".npmrc",
+    ".gitignore",
+    "README.md",
+    "src/main.js",
+    "src/App.vue",
+    "src/pages/RiskDashboard/RiskDashboard.vue",
+    "src/pages/RiskDashboard/RiskDashboard.css",
+    "src/components/FunnelChart.vue",
+    "src/components/TrendChart.vue",
+    "src/utils/exportOfflineHtml.js",
+    "src/mock/dashboardData.js"
+  ],
+  "protected_files": [],
+  "forbidden_paths": [
+    "../lui-pc-demo/**",
+    "../jinchan-exception-center/**"
+  ],
+  "expected_new_files": [
+    "package.json",
+    "vite.config.js",
+    "index.html",
+    "src/main.js",
+    "src/App.vue",
+    "src/pages/RiskDashboard/RiskDashboard.vue"
+  ],
+  "expected_deleted_files": [],
+  "related_regression_targets": ["riskDashboard"],
+  "reason_by_file": {
+    "src/**": "implementation-contract pages and components",
+    "public/**": "static assets for preview",
+    ".delivery/**": "P2C evidence",
+    "index.html": "vite entry",
+    "package.json": "project bootstrap",
+    "package-lock.json": "npm lockfile",
+    "vite.config.js": "build config",
+    ".npmrc": "JD npm registry",
+    ".gitignore": "ignore node_modules/dist",
+    "README.md": "preview instructions",
+    "src/main.js": "vue entry",
+    "src/App.vue": "root shell",
+    "src/pages/RiskDashboard/RiskDashboard.vue": "main dashboard page",
+    "src/pages/RiskDashboard/RiskDashboard.css": "dashboard styles",
+    "src/components/FunnelChart.vue": "funnel chart",
+    "src/components/TrendChart.vue": "trend chart",
+    "src/utils/exportOfflineHtml.js": "offline html export",
+    "src/mock/dashboardData.js": "mock data"
+  },
+  "note": "目标仓未定；仅本地 greenfield 预览"
+}

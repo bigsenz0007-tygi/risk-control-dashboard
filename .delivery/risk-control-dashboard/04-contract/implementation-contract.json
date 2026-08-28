@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "mode": "p2c",
+  "generated_at": "2026-08-27T19:05:00+08:00",
+  "spec_ref": "01-spec/feature-spec.json",
+  "reference_ref": "03-ui-source/reference-contract.json",
+  "registry_ref": "02-repo/component-registry.json",
+  "tokens_policy": "lui-pc3-then-finance-density",
+  "forbidden": [
+    "invent-existing-lui-component",
+    "implement-backend-integration",
+    "push-without-repo-confirm"
+  ],
+  "source_traceability": [
+    {
+      "requirement": "筛选查询区与操作按钮",
+      "spec_refs": ["FLD-RISK-SCENE", "FLD-STRATEGY-NAME", "FLD-STRATEGY-CODE", "FLD-STATUS", "FLD-VERSION", "FLD-DATE-RANGE", "FLOW-DASHBOARD-QUERY"],
+      "ui_refs": ["REF-FIG1", "REF-FINANCE-STYLE"],
+      "impl": "src/pages/RiskDashboard/RiskDashboard.vue#region filter-panel"
+    },
+    {
+      "requirement": "KPI 指标卡（含待上线）",
+      "spec_refs": ["FLD-KPI-CALLS", "FLD-KPI-HITS", "FLD-KPI-ACCURACY", "FLD-KPI-HANDLE", "FLD-KPI-PENALTY", "ST-KPI-PENDING"],
+      "ui_refs": ["REF-FIG1", "REF-OFFLINE-HTML"],
+      "impl": "src/pages/RiskDashboard/RiskDashboard.vue#region kpi-cards"
+    },
+    {
+      "requirement": "漏斗与趋势图",
+      "spec_refs": ["FLOW-DASHBOARD-QUERY"],
+      "ui_refs": ["REF-FIG1", "REF-OFFLINE-HTML"],
+      "impl": "src/components/FunnelChart.vue + src/components/TrendChart.vue"
+    },
+    {
+      "requirement": "每日策略指标表",
+      "spec_refs": ["FLOW-DAILY-TABLE", "FLD-TABLE-GRANULARITY"],
+      "ui_refs": ["REF-FIG2", "REF-FINANCE-STYLE"],
+      "impl": "src/pages/RiskDashboard/RiskDashboard.vue#region daily-strategy-table"
+    },
+    {
+      "requirement": "下载离线看板静态 HTML",
+      "spec_refs": ["FLOW-OFFLINE-EXPORT"],
+      "ui_refs": ["REF-OFFLINE-HTML"],
+      "impl": "src/utils/exportOfflineHtml.js"
+    }
+  ],
+  "pages": [
+    {
+      "page_id": "riskDashboard",
+      "title": "风控看板",
+      "pattern": "filter-kpi-chart-table",
+      "file": "src/pages/RiskDashboard/RiskDashboard.vue",
+      "route": "/",
+      "in_scope": true,
+      "regions": [
+        {
+          "region_id": "filter-panel",
+          "description": "筛选区 + 下载/重置/查询",
+          "components": [
+            { "candidate": "el-form", "source": "lui" },
+            { "candidate": "el-select", "source": "lui" },
+            { "candidate": "el-input", "source": "lui" },
+            { "candidate": "el-date-picker", "source": "lui" },
+            { "candidate": "el-button", "source": "lui" }
+          ]
+        },
+        {
+          "region_id": "kpi-cards",
+          "description": "五张指标卡",
+          "components": [
+            { "candidate": "el-tag", "source": "lui" },
+            { "candidate": "el-tooltip", "source": "lui" }
+          ]
+        },
+        {
+          "region_id": "funnel-chart",
+          "description": "风险全链路转化视图",
+          "components": [{ "candidate": "CUSTOM-FUNNEL", "source": "new" }]
+        },
+        {
+          "region_id": "trend-chart",
+          "description": "核心指标趋势",
+          "components": [{ "candidate": "CUSTOM-TREND", "source": "new" }]
+        },
+        {
+          "region_id": "daily-strategy-table",
+          "description": "每日策略指标",
+          "components": [
+            { "candidate": "el-radio-group", "source": "lui" },
+            { "candidate": "el-table", "source": "lui" },
+            { "candidate": "el-pagination", "source": "lui" }
+          ]
+        },
+        {
+          "region_id": "offline-export",
+          "description": "静态 HTML 导出",
+          "components": [{ "candidate": "UTIL-OFFLINE", "source": "new" }]
+        }
+      ]
+    }
+  ]
+}

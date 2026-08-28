@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>风险监控看板</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f5f5; color: #1b1b1b; font-family: "PingFang SC", -apple-system, "Microsoft YaHei", sans-serif; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 24px; font-weight: 600; margin: 0 0 8px; }
+.range { font-size: 13px; color: #6a6a6a; line-height: 1.6; }
+.note { font-size: 12px; color: #9d9d9d; margin: 4px 0 20px; }
+.cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 22px; }
+.card { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+.card-pending { background: #fafafa; }
+.card-head { display: flex; align-items: center; gap: 6px; }
+.card-label { font-size: 14px; color: #6a6a6a; }
+.card-value { font-size: 24px; font-weight: 600; margin-top: 8px; }
+.card-sub { display: flex; align-items: center; gap: 4px; font-size: 12px; color: #9d9d9d; margin-top: 6px; }
+.card-sub b { color: #1b1b1b; font-weight: 500; }
+.muted { color: #d1d5db !important; }
+.tag { font-size: 10px; line-height: 18px; padding: 0 4px; border-radius: 2px; }
+.tag-blue { background: rgba(59,130,246,.1); color: #3B82F6; }
+.tag-gray { background: #f5f5f5; color: #9ca3af; }
+.panels { display: grid; grid-template-columns: 2fr 3fr; gap: 22px; }
+.panel { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 16px 24px 24px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+.panel h2 { font-size: 16px; font-weight: 700; margin: 0 0 12px; }
+.legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 16px; margin-bottom: 12px; font-size: 12px; color: #9d9d9d; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { display: inline-block; width: 16px; height: 3px; border-radius: 2px; }
+.legend i.dash { height: 0; border-top: 2px dashed; border-color: inherit; background: none !important; }
+.empty { color: #9d9d9d; font-size: 13px; text-align: center; padding: 40px 0; }
+@media (max-width: 900px){ .cards{ grid-template-columns: repeat(2,1fr);} .panels{ grid-template-columns: 1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>风险监控看板</h1>
+  <div class="range">数据范围：风险场景=全部｜策略名称=全部｜策略编码=全部｜当前状态=全部｜版本号=全部｜统计日期=全部</div>
+  <div class="note">本看板为静态快照，数据不会自动更新。</div>
+  <div class="cards"><div class="card ">
+        <div class="card-head"><span class="card-label ">调用量</span><span class="tag tag-blue">准实时</span></div>
+        <div class="card-value ">1,284,920</div>
+        
+      </div><div class="card ">
+        <div class="card-head"><span class="card-label ">命中量</span><span class="tag tag-blue">准实时</span></div>
+        <div class="card-value ">85,420</div>
+        <div class="card-sub"><span>命中率:</span><b class="">6.65%</b></div>
+      </div><div class="card card-pending">
+        <div class="card-head"><span class="card-label muted">准确量</span><span class="tag tag-gray">待上线</span></div>
+        <div class="card-value muted">待上线</div>
+        <div class="card-sub"><span>准确率:</span><b class="muted">92.4%</b></div>
+      </div><div class="card card-pending">
+        <div class="card-head"><span class="card-label muted">处置量</span><span class="tag tag-gray">待上线</span></div>
+        <div class="card-value muted">待上线</div>
+        <div class="card-sub"><span>处置率:</span><b class="muted">待上线</b></div>
+      </div><div class="card card-pending">
+        <div class="card-head"><span class="card-label muted">落罚量</span><span class="tag tag-gray">待上线</span></div>
+        <div class="card-value muted">待上线</div>
+        <div class="card-sub"><span>落罚率:</span><b class="muted">待上线</b></div>
+      </div></div>
+  <div class="panels">
+    <div class="panel"><h2>风险全链路转化视图</h2>
+      <svg width="100%" height="420" viewBox="0 0 520 420" preserveAspectRatio="xMidYMid meet">
+        <path d="M40,20 L360,20 L332,88 L68,88 Z" fill="#3B82F6" fill-opacity="0.9"></path>
+        <text x="200" y="48" text-anchor="middle" fill="#fff" font-size="14" font-weight="500">调用量</text>
+        <text x="200" y="70" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">1,284,920</text>
+
+        <path d="M68,94 L332,94 L304,162 L96,162 Z" fill="#60A5FA" fill-opacity="0.9"></path>
+        <text x="200" y="122" text-anchor="middle" fill="#fff" font-size="14" font-weight="500">命中量</text>
+        <text x="200" y="144" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">85,420 / 6.65%</text>
+
+        <path d="M96,168 L304,168 L276,236 L124,236 Z" fill="#e5e7eb"></path>
+        <text x="200" y="196" text-anchor="middle" fill="#9ca3af" font-size="13" font-weight="500">处置量</text>
+        <text x="200" y="216" text-anchor="middle" fill="#b8bcc4" font-size="11">待上线</text>
+
+        <path d="M124,242 L276,242 L248,310 L152,310 Z" fill="#eceef1"></path>
+        <text x="200" y="270" text-anchor="middle" fill="#9ca3af" font-size="13" font-weight="500">落罚量</text>
+        <text x="200" y="290" text-anchor="middle" fill="#b8bcc4" font-size="11">待上线</text>
+
+        <path d="M152,316 L248,316 L228,384 L172,384 Z" fill="#f3f4f6"></path>
+        <text x="200" y="346" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="500">准确量</text>
+        <text x="200" y="365" text-anchor="middle" fill="#c4c8d0" font-size="10">待上线</text>
+
+        <line x1="304" y1="165" x2="372" y2="165" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3"></line>
+        <text x="378" y="162" text-anchor="start" fill="#c4c8d0" font-size="10">转化率</text>
+        <text x="378" y="178" text-anchor="start" fill="#c4c8d0" font-size="12">待上线</text>
+
+        <line x1="276" y1="239" x2="372" y2="239" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3"></line>
+        <text x="378" y="236" text-anchor="start" fill="#c4c8d0" font-size="10">转化率</text>
+        <text x="378" y="252" text-anchor="start" fill="#c4c8d0" font-size="12">待上线</text>
+
+        <line x1="248" y1="313" x2="372" y2="313" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3"></line>
+        <text x="378" y="310" text-anchor="start" fill="#c4c8d0" font-size="10">转化率</text>
+        <text x="378" y="326" text-anchor="start" fill="#c4c8d0" font-size="12">待上线</text>
+      </svg></div>
+    <div class="panel"><h2>核心指标趋势</h2>
+        <div class="legend">
+          <span><i style="background:#3B82F6"></i>调用量</span>
+          <span><i style="background:#f63218"></i>命中量</span>
+          <span><i class="dash" style="background:#faad14"></i>命中率</span>
+          <span class="muted"><i class="dash" style="background:#52c41a"></i>准确率（待上线）</span>
+          <span class="muted"><i class="dash" style="background:#9ca3af"></i>处置率（待上线）</span>
+          <span class="muted"><i class="dash" style="background:#d1d5db"></i>落罚率（待上线）</span>
+        </div>
+        <div id="snapTrendWrap" style="position:relative;">
+        <svg id="snapTrendSvg" width="100%" height="320" viewBox="0 0 600 300" style="cursor:crosshair;">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.1"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/></linearGradient></defs>
+          <line x1="50" y1="40" x2="550" y2="40" stroke="#f0f1f2" stroke-width="1" stroke-dasharray="4"></line>
+          <text x="40" y="44" text-anchor="end" fill="#9d9d9d" font-size="10">150w</text>
+          <text x="560" y="44" text-anchor="start" fill="#9d9d9d" font-size="10">100%</text><line x1="50" y1="95" x2="550" y2="95" stroke="#f0f1f2" stroke-width="1" stroke-dasharray="4"></line>
+          <text x="40" y="99" text-anchor="end" fill="#9d9d9d" font-size="10">113w</text>
+          <text x="560" y="99" text-anchor="start" fill="#9d9d9d" font-size="10">75%</text><line x1="50" y1="150" x2="550" y2="150" stroke="#f0f1f2" stroke-width="1" stroke-dasharray="4"></line>
+          <text x="40" y="154" text-anchor="end" fill="#9d9d9d" font-size="10">75w</text>
+          <text x="560" y="154" text-anchor="start" fill="#9d9d9d" font-size="10">50%</text><line x1="50" y1="205" x2="550" y2="205" stroke="#f0f1f2" stroke-width="1" stroke-dasharray="4"></line>
+          <text x="40" y="209" text-anchor="end" fill="#9d9d9d" font-size="10">38w</text>
+          <text x="560" y="209" text-anchor="start" fill="#9d9d9d" font-size="10">25%</text><line x1="50" y1="260" x2="550" y2="260" stroke="#f0f1f2" stroke-width="1" stroke-dasharray="4"></line>
+          <text x="40" y="264" text-anchor="end" fill="#9d9d9d" font-size="10">0w</text>
+          <text x="560" y="264" text-anchor="start" fill="#9d9d9d" font-size="10">0%</text>
+          <text x="50" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-20</text><text x="133.33333333333331" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-21</text><text x="216.66666666666666" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-22</text><text x="300" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-23</text><text x="383.3333333333333" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-24</text><text x="466.6666666666667" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-25</text><text x="550" y="285" text-anchor="middle" fill="#9d9d9d" font-size="10">08-26</text>
+          <path d="M50,93.11357333333333 L133.33333333333331,111.94557333333333 L216.66666666666666,99.51278666666667 L300,95.93074666666666 L383.3333333333333,112.70061333333334 L466.6666666666667,103.05287999999999 L550,102.95035999999999 L550,260 L50,260 Z" fill="url(#g)"></path>
+          <path d="M50,93.11357333333333 L133.33333333333331,111.94557333333333 L216.66666666666666,99.51278666666667 L300,95.93074666666666 L383.3333333333333,112.70061333333334 L466.6666666666667,103.05287999999999 L550,102.95035999999999" fill="none" stroke="#3B82F6" stroke-width="2"></path>
+          <path d="M50,247.67486666666667 L133.33333333333331,249.54882666666666 L216.66666666666666,248.78850666666668 L300,248.37124 L383.3333333333333,248.21958666666666 L466.6666666666667,248.42990666666668 L550,249.46170666666666" fill="none" stroke="#f63218" stroke-width="2"></path>
+          <path d="M50,243.742 L133.33333333333331,244.468 L216.66666666666666,244.622 L300,244.402 L383.3333333333333,242.4 L466.6666666666667,243.786 L550,245.238" fill="none" stroke="#faad14" stroke-width="1.5" stroke-dasharray="4"></path>
+          <line id="snapCross" y1="40" y2="260" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2" style="display:none;"></line>
+          <circle id="snapDotCall" r="4" fill="#3B82F6" style="display:none;"></circle>
+          <circle id="snapDotHit" r="3" fill="#f63218" style="display:none;"></circle>
+          <circle id="snapDotRate" r="3" fill="#faad14" style="display:none;"></circle>
+        </svg>
+        <div id="snapTip" style="display:none;position:absolute;background:rgba(255,255,255,.95);box-shadow:0 10px 25px rgba(0,0,0,.12);border:1px solid #f0f0f0;padding:12px;border-radius:4px;z-index:10;pointer-events:none;min-width:160px;"></div>
+        </div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var PTS=[{"time":"08-20","calls":1137862,"hits":84035,"hitRate":"7.39","x":50,"callY":93.11357333333333,"hitY":247.67486666666667,"rateY":243.742},{"time":"08-21","calls":1009462,"hits":71258,"hitRate":"7.06","x":133.33333333333331,"callY":111.94557333333333,"hitY":249.54882666666666,"rateY":244.468},{"time":"08-22","calls":1094231,"hits":76442,"hitRate":"6.99","x":216.66666666666666,"callY":99.51278666666667,"hitY":248.78850666666668,"rateY":244.622},{"time":"08-23","calls":1118654,"hits":79287,"hitRate":"7.09","x":300,"callY":95.93074666666666,"hitY":248.37124,"rateY":244.402},{"time":"08-24","calls":1004314,"hits":80321,"hitRate":"8.00","x":383.3333333333333,"callY":112.70061333333334,"hitY":248.21958666666666,"rateY":242.4},{"time":"08-25","calls":1070094,"hits":78887,"hitRate":"7.37","x":466.6666666666667,"callY":103.05287999999999,"hitY":248.42990666666668,"rateY":243.786},{"time":"08-26","calls":1070793,"hits":71852,"hitRate":"6.71","x":550,"callY":102.95035999999999,"hitY":249.46170666666666,"rateY":245.238}];
+  var W=600,PL=50,CW=500;
+  var svg=document.getElementById('snapTrendSvg');
+  if(!svg)return;
+  var cross=document.getElementById('snapCross');
+  var dCall=document.getElementById('snapDotCall');
+  var dHit=document.getElementById('snapDotHit');
+  var dRate=document.getElementById('snapDotRate');
+  var tip=document.getElementById('snapTip');
+  function nf(n){return Number(n).toLocaleString();}
+  function row(c,l,v){
+    return '<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:6px;">'
+      +'<span style="font-size:12px;color:#6a6a6a;display:inline-flex;align-items:center;gap:4px;">'
+      +'<span style="width:8px;height:8px;border-radius:50%;display:inline-block;background:'+c+';"></span>'
+      +l+'</span>'
+      +'<span style="font-size:12px;font-weight:700;font-family:monospace;">'+v+'</span></div>';
+  }
+  svg.addEventListener('mousemove',function(e){
+    var r=svg.getBoundingClientRect();
+    var x=((e.clientX-r.left)/r.width)*W;
+    var i=Math.round(((x-PL)/CW)*(PTS.length-1));
+    if(i<0)i=0; if(i>PTS.length-1)i=PTS.length-1;
+    var p=PTS[i];
+    cross.setAttribute('x1',p.x);cross.setAttribute('x2',p.x);cross.style.display='';
+    dCall.setAttribute('cx',p.x);dCall.setAttribute('cy',p.callY);dCall.style.display='';
+    dHit.setAttribute('cx',p.x);dHit.setAttribute('cy',p.hitY);dHit.style.display='';
+    dRate.setAttribute('cx',p.x);dRate.setAttribute('cy',p.rateY);dRate.style.display='';
+    tip.style.display='block';
+    tip.style.left=((p.x/W)*r.width+20)+'px';
+    tip.style.top='80px';
+    tip.innerHTML='<div style="font-size:13px;font-weight:700;color:#1b1b1b;margin-bottom:8px;border-bottom:1px solid #f5f5f5;padding-bottom:4px;">'+p.time+' 监控数据</div>'
+      +row('#3B82F6','调用量',nf(p.calls))
+      +row('#f63218','命中量',nf(p.hits))
+      +row('#faad14','命中率',p.hitRate+'%');
+  });
+  svg.addEventListener('mouseleave',function(){
+    cross.style.display='none';dCall.style.display='none';dHit.style.display='none';dRate.style.display='none';tip.style.display='none';
+  });
+})();
+</script>
+</body>
+</html>

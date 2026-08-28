@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "generated_at": "2026-08-27T19:25:00+08:00",
+  "result": "pass_with_notes",
+  "mode": "p2c-reference-consistency",
+  "checks": [
+    { "id": "layout-filter-kpi-charts-table", "status": "pass" },
+    { "id": "pending-kpi-gray", "status": "pass" },
+    { "id": "funnel-order", "status": "pass", "note": "调用→命中→处置→落罚→准确" },
+    { "id": "table-columns", "status": "pass" },
+    { "id": "offline-html-parity", "status": "pass", "note": "结构对齐样例" },
+    { "id": "pixel-perfect", "status": "skipped", "note": "P2C 非像素抄稿" }
+  ]
+}

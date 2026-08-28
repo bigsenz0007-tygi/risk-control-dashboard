@@ -1,0 +1,782 @@
+/* 对齐 LUI PC3.0：字体 / 字号 / 间距（数字字体 JDZhengHT 需自行放入 assets/fonts） */
+
+:root {
+  --lui-primary: #3c6ef0;
+  --lui-primary-hover: #2f5cd6;
+  --lui-primary-active: #294fc0;
+  --lui-primary-light-7: #c6d5fb;
+  --lui-primary-light-9: #ecf1fe;
+  --lui-text-main: #23252b;
+  --lui-text-regular: #525765;
+  --lui-text-secondary: #868d9f;
+  --lui-text-disabled: #babec7;
+  --lui-border: #eaeaea;
+  --lui-border-light: #eaeaea;
+  --lui-border-form: #d9d9d9;
+  --lui-table-divider: #f1f2f4;
+  --lui-table-header-bg: #f5f7fa;
+  --lui-bg-page: #f5f5f6;
+  --lui-bg-fill: #f5f5f6;
+  --lui-radius-base: 8px;
+  --lui-control-height: 32px;
+  --lui-form-label-width: 120px;
+  --lui-form-item-gap: 12px;
+  --lui-form-col-gap: 48px;
+  --lui-form-row-gap: 16px;
+  --lui-success: #12b35d;
+  --lui-danger: #fc3737;
+  --lui-warning: #ff7700;
+  --lui-shadow-dropdown: 0 4px 16px rgba(35, 37, 43, 0.1);
+  --lui-font-sans: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --lui-font-number: 'JDZhengHT-EN', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  /* 兼容旧变量名 */
+  --lui-color-text-1: var(--lui-text-main);
+  --lui-color-text-2: var(--lui-text-regular);
+  --lui-color-text-3: var(--lui-text-secondary);
+  --lui-color-primary: var(--lui-primary);
+  --lui-color-danger: var(--lui-danger);
+  --lui-color-warning: var(--lui-warning);
+  --lui-color-success: var(--lui-success);
+  --lui-color-bg: var(--lui-bg-page);
+  --lui-color-white: #ffffff;
+  --lui-radius: var(--lui-radius-base);
+  --lui-space-xs: 8px;
+  --lui-space-sm: 12px;
+  --lui-space-md: 16px;
+  --lui-space-lg: 24px;
+  --lui-space-xl: 32px;
+  --lui-font-size-body: 14px;
+  --lui-font-size-module: 16px;
+  --lui-font-size-aux: 12px;
+  --lui-font-size-kpi: 32px;
+  --lui-line-height-body: 22px;
+  --lui-line-height-module: 24px;
+  --lui-line-height-aux: 18px;
+  --lui-line-height-kpi: 32px;
+  --chart-plot-height: 300px;
+  --lui-font-sans-medium: var(--lui-font-sans);
+  --lui-font-weight-regular: 400;
+  --lui-font-weight-medium: 500;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--lui-font-sans);
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: var(--lui-text-main);
+  background: var(--lui-bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+.risk-page {
+  font-family: var(--lui-font-sans);
+}
+
+.risk-page .el-button,
+.risk-page .el-input,
+.risk-page .el-input__inner,
+.risk-page .el-select,
+.risk-page .el-table,
+.risk-page .el-tabs,
+.risk-page .el-form,
+.risk-page .el-pagination,
+.risk-page .el-dropdown-menu,
+.risk-page .el-tag,
+.risk-page .el-radio-button__inner {
+  font-family: var(--lui-font-sans);
+}
+
+/* 数字优先京东正黑 */
+.risk-page .kpi-card__num,
+.risk-page .kpi-card__value,
+.risk-page .kpi-card__mom-value,
+.risk-page .kpi-card__sub-value,
+.risk-page .rd-num,
+.risk-page .rd-dod,
+.risk-page .el-pagination,
+.table-card .el-table {
+  font-family: var(--lui-font-number);
+}
+
+/* 内容区：页边距 16 / 底 24 / 区块间距 16 */
+.risk-page {
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: var(--lui-space-md);
+  background: var(--lui-bg-page);
+}
+
+.risk-page__main {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--lui-space-md);
+  min-width: 0;
+}
+
+/* ---------- 筛选面板：Tab + 查询同白底 ---------- */
+.filter-panel {
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid var(--lui-border);
+  border-radius: var(--lui-radius-base);
+  overflow: hidden;
+}
+
+/* 查询区：白底、无描边、圆角 8、padding 16（LUI PC3.0） */
+.filter-panel__body,
+.query-card {
+  padding: var(--lui-space-md);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.query-card {
+  border-radius: var(--lui-radius-base);
+  flex-shrink: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+/* ---------- 查询栅格：列距 48 / 行距 16 / label 120 ---------- */
+.query-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--lui-form-col-gap);
+  row-gap: var(--lui-form-row-gap);
+  width: 100%;
+  align-items: start;
+  --lui-form-label-width: 120px;
+}
+
+@media (min-width: 1920px) {
+  .query-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1199px) {
+  .query-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 719px) {
+  .query-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.query-grid.el-form--label-right .el-form-item,
+.query-grid .el-form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.query-grid .el-form-item__label {
+  width: var(--lui-form-label-width) !important;
+  min-width: var(--lui-form-label-width);
+  flex-shrink: 0;
+  float: none !important;
+  text-align: right;
+  padding-right: var(--lui-form-item-gap);
+  line-height: 32px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 400 !important;
+  color: #525765 !important;
+  font-family: var(--lui-font-sans);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.query-grid .el-form-item__content {
+  flex: 1 1 0%;
+  min-width: 0;
+  margin-left: 0 !important;
+  line-height: 32px;
+}
+
+.query-grid .el-input,
+.query-grid .el-select,
+.query-grid .el-date-editor.el-input,
+.query-grid .el-date-editor.el-input__inner,
+.query-grid .el-date-editor--daterange.el-input__inner,
+.query-grid .el-date-editor--month.el-input,
+.query-grid .el-date-editor,
+.query-grid .el-cascader {
+  width: 100% !important;
+  max-width: none;
+}
+
+.query-grid .el-input__inner,
+.query-grid .el-range-input {
+  height: 32px;
+  line-height: 32px;
+  font-size: var(--lui-font-size-body);
+  font-family: var(--lui-font-sans);
+  font-weight: var(--lui-font-weight-regular);
+  color: var(--lui-text-main);
+  border-radius: var(--lui-radius-base) !important;
+  border-color: var(--lui-border-form);
+}
+
+.query-grid .el-range-separator {
+  color: #23252b;
+  font-size: 14px;
+  line-height: 14px;
+  height: auto !important;
+}
+
+/* 日期范围在栅格内铺满，避免 LUI 默认 min-width 撑破 */
+.query-grid .el-date-editor--daterange.el-input__inner,
+.query-grid .el-date-editor.el-input__inner {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+.query-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: end;
+  justify-self: stretch;
+  grid-column: -2 / -1;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  gap: var(--lui-space-sm);
+}
+
+.query-actions .el-button {
+  font-size: 14px;
+  margin-left: 0;
+}
+
+.query-actions .el-button + .el-button {
+  margin-left: 0;
+}
+
+/* 默认最多 2 行；展开看全部（随断点列数换算） */
+.query-grid.is-collapsed > .el-form-item:nth-of-type(n + 7) {
+  display: none !important;
+}
+
+@media (min-width: 1920px) {
+  .query-grid.is-collapsed > .el-form-item:nth-of-type(7),
+  .query-grid.is-collapsed > .el-form-item:nth-of-type(8) {
+    display: flex !important;
+  }
+
+  .query-grid.is-collapsed > .el-form-item:nth-of-type(n + 9) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .query-grid.is-collapsed > .el-form-item:nth-of-type(n + 5) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 719px) {
+  .query-grid.is-collapsed > .el-form-item:nth-of-type(n + 3) {
+    display: none !important;
+  }
+}
+
+/* Select / 下拉选项 — LUI PC3.0（对齐一站报价 Figma 5:2748，左对齐 + 纵向居中）*/
+.el-select-dropdown {
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: var(--lui-shadow-dropdown) !important;
+  margin-top: 4px !important;
+  padding: 4px !important;
+  background: #fff !important;
+  overflow: hidden;
+}
+
+.el-select-dropdown .el-scrollbar__view.el-select-dropdown__list,
+.el-select-dropdown__list {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.el-select-dropdown__item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  line-height: 22px !important;
+  padding: 5px 8px 5px 12px !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400;
+  color: var(--lui-text-regular) !important;
+  text-align: left !important;
+  border-radius: 8px !important;
+  background: transparent;
+  box-sizing: border-box !important;
+}
+
+.el-select-dropdown__item.hover,
+.el-select-dropdown__item:hover {
+  background: var(--lui-bg-fill) !important;
+  color: var(--lui-text-regular) !important;
+  font-weight: 500;
+}
+
+.el-select-dropdown__item.selected {
+  color: var(--lui-primary) !important;
+  font-weight: 500;
+  background: rgba(60, 110, 240, 0.1) !important;
+}
+
+.el-select-dropdown__item.selected.hover,
+.el-select-dropdown__item.selected:hover {
+  background: rgba(60, 110, 240, 0.1) !important;
+  color: var(--lui-primary) !important;
+}
+
+/* 选择器触发器内文案：左对齐 + 垂直居中（与下拉项一致） */
+.query-grid .el-select .el-input__inner,
+.risk-page .el-select .el-input__inner {
+  height: 32px !important;
+  line-height: 32px !important;
+  text-align: left;
+}
+
+/* ---------- 按钮：高 32 / 圆角 8 / padding 0 16 / 相邻 8 / min-width 72 ---------- */
+.risk-page .el-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  min-height: var(--lui-control-height);
+  height: var(--lui-control-height);
+  padding: 0 16px;
+  border-radius: var(--lui-radius-base) !important;
+  font-size: var(--lui-font-size-body);
+  font-weight: var(--lui-font-weight-regular);
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.risk-page .el-button--small,
+.risk-page .el-button--mini {
+  min-width: 72px;
+  min-height: var(--lui-control-height);
+  height: var(--lui-control-height);
+  padding: 0 16px;
+  font-size: var(--lui-font-size-body);
+  line-height: 1;
+}
+
+/* LUI PC3.0 / 一站报价：次按钮灰底填充、无描边 */
+.risk-page .el-button--default {
+  background: var(--lui-bg-fill) !important;
+  border: 1px solid transparent !important;
+  border-color: transparent !important;
+  color: var(--lui-text-main) !important;
+}
+
+.risk-page .el-button--default:focus {
+  background: var(--lui-bg-fill) !important;
+  border-color: transparent !important;
+  color: var(--lui-text-main) !important;
+}
+
+.risk-page .el-button--default:hover {
+  color: var(--lui-primary) !important;
+  border-color: transparent !important;
+  background: var(--lui-primary-light-9) !important;
+}
+
+.risk-page .el-button--default:active {
+  color: var(--lui-primary-active) !important;
+  border-color: transparent !important;
+  background: var(--lui-bg-fill) !important;
+}
+
+.risk-page .el-button--primary {
+  background-color: var(--lui-primary) !important;
+  border-color: var(--lui-primary) !important;
+  color: #fff !important;
+}
+
+.risk-page .el-button--text {
+  min-width: auto;
+  height: auto;
+  min-height: auto;
+  padding: 0 4px;
+  border: none !important;
+  background: transparent !important;
+  color: var(--lui-primary);
+  line-height: 1.4;
+}
+
+.risk-page .el-button + .el-button {
+  margin-left: var(--lui-space-xs);
+}
+
+/* ---------- 表格卡片 ---------- */
+.table-card {
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid var(--lui-border);
+  border-radius: var(--lui-radius-base);
+  padding: var(--lui-space-md);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.table-card__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--lui-space-md);
+  flex-shrink: 0;
+}
+
+/* 标题栏内分段控件：勿沿用 filter 区 biz-tabs 的 12px 底边距 */
+.table-card__toolbar .biz-tabs {
+  margin: 0;
+}
+
+/* 模块标题：16/24 Medium + 左侧蓝条 */
+.table-card__title {
+  margin: 0;
+  padding: 0;
+  font-family: var(--lui-font-sans);
+  font-size: var(--lui-font-size-module);
+  line-height: var(--lui-line-height-module);
+  font-weight: var(--lui-font-weight-medium);
+  color: var(--lui-text-main);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.table-card__title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  border-radius: 1px;
+  background: var(--lui-primary);
+}
+
+.table-card__body {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.table-card__body .el-table {
+  width: 100%;
+}
+
+.table-card__toolbar .el-button--small {
+  height: var(--lui-control-height);
+  padding: 0 16px;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.table-card__pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 0;
+  flex-shrink: 0;
+}
+
+/* ---------- 表格：对齐一站报价（表头 #F5F7FA / 字 #525765 / Regular / 行高 48）---------- */
+.table-card .el-table {
+  font-family: var(--lui-font-number);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--lui-text-regular);
+  border: none !important;
+  border-radius: var(--lui-radius-base);
+}
+
+.table-card .el-table::before,
+.table-card .el-table::after {
+  display: none !important;
+}
+
+.table-card .el-table th,
+.table-card .el-table thead th,
+.table-card .el-table th.el-table__cell,
+.table-card .el-table__fixed-header-wrapper th,
+.table-card .el-table__fixed-right .el-table__header th,
+.table-card .el-table__fixed .el-table__header th {
+  background: var(--lui-table-header-bg) !important;
+  color: #525765 !important;
+  font-weight: 400 !important;
+  font-size: 14px;
+  line-height: 16px;
+  border-bottom: 1px solid var(--lui-table-divider) !important;
+  border-right: none !important;
+  padding: 16px 0;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.table-card .el-table th.el-table__cell .cell {
+  color: #525765 !important;
+  font-weight: 400 !important;
+  line-height: 16px;
+  font-size: 14px;
+  text-align: left !important;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.table-card .el-table td.el-table__cell {
+  border-bottom: 1px solid var(--lui-table-divider) !important;
+  border-right: none !important;
+  padding: 16px 0;
+  height: 54px;
+  color: #525765;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+/* 表格单元格禁止跨行：单行省略，行高保持稳定（仅数据行） */
+.table-card .el-table td .cell {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 22px;
+  text-align: left !important;
+}
+
+.table-card .el-table td,
+.table-card .el-table td .cell {
+  font-weight: 400;
+  color: #525765;
+}
+
+.table-card .el-table td.el-table__cell {
+  height: 54px !important;
+  padding: 16px 0 !important;
+  box-sizing: border-box;
+}
+
+.table-card .el-table th.el-table__cell {
+  height: 48px !important;
+  padding: 16px 0 !important;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* 表头排序：涨跌三角箭头 6×6、间距 2px、灰色默认 */
+.table-card .el-table .caret-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 6px;
+  height: auto;
+  margin-left: 4px;
+  overflow: visible;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.table-card .el-table .caret-wrapper > div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  line-height: 0;
+  overflow: visible;
+}
+
+.table-card .el-table .caret-wrapper .ascending-top,
+.table-card .el-table .caret-wrapper .descending-top,
+.table-card .el-table .caret-wrapper .el-icon-lui-caret-top,
+.table-card .el-table .caret-wrapper .el-icon-lui-caret-bottom {
+  margin: 0 !important;
+  padding: 0;
+  width: 6px;
+  height: 6px;
+  display: block;
+  flex-shrink: 0;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  background-color: var(--lui-text-disabled);
+  mask: url('../assets/icons/sort-triangle.svg') center / contain no-repeat;
+  -webkit-mask: url('../assets/icons/sort-triangle.svg') center / contain no-repeat;
+}
+
+.table-card .el-table .caret-wrapper .ascending-top::before,
+.table-card .el-table .caret-wrapper .descending-top::before,
+.table-card .el-table .caret-wrapper .el-icon-lui-caret-top::before,
+.table-card .el-table .caret-wrapper .el-icon-lui-caret-bottom::before {
+  content: none !important;
+}
+
+.table-card .el-table .caret-wrapper .descending-top,
+.table-card .el-table .caret-wrapper .el-icon-lui-caret-bottom {
+  transform: scaleY(-1);
+}
+
+.table-card .el-table th.ascending .caret-wrapper .ascending-top.ascending,
+.table-card .el-table th.ascending .caret-wrapper .el-icon-lui-caret-top.ascending {
+  background-color: var(--lui-primary);
+}
+
+.table-card .el-table th.descending .caret-wrapper .descending-top.descending,
+.table-card .el-table th.descending .caret-wrapper .el-icon-lui-caret-bottom.descending {
+  background-color: var(--lui-primary);
+}
+
+.table-card .el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+  background: #f5f5f6 !important;
+}
+
+.table-card .el-table .el-button--text {
+  font-family: var(--lui-font-sans);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--lui-primary);
+}
+
+/* ---------- 分页：紧凑 24 ---------- */
+.table-card .el-pagination {
+  color: var(--lui-text-regular);
+  font-weight: 400;
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.table-card .el-pagination .btn-prev,
+.table-card .el-pagination .btn-next,
+.table-card .el-pagination .el-pager li {
+  min-width: 24px !important;
+  width: 24px;
+  height: 24px !important;
+  line-height: 24px !important;
+  border: 1px solid var(--lui-border);
+  background: #fff;
+  margin: 0 4px !important;
+  padding: 0 !important;
+  border-radius: var(--lui-radius-base) !important;
+  font-size: 12px !important;
+  box-sizing: border-box;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-card .el-pagination .el-pager li.active {
+  background: var(--lui-primary) !important;
+  border-color: var(--lui-primary) !important;
+  color: #fff !important;
+}
+
+.table-card .el-pagination__sizes {
+  margin: 0 0 0 8px !important;
+}
+
+.table-card .el-pagination__sizes .el-input__inner {
+  height: 24px !important;
+  line-height: 22px !important;
+  font-size: 14px !important;
+}
+
+.table-card .el-pagination__jump {
+  margin-left: 8px !important;
+  font-size: 14px;
+}
+
+.table-card .el-pagination__jump .el-input__inner {
+  height: 24px !important;
+  line-height: 22px !important;
+  font-size: 14px !important;
+}
+
+/* ---------- 核验子 Tab（胶囊分段）：与主 Tab 间距 12 ---------- */
+.biz-tabs {
+  flex-shrink: 0;
+  margin: 0;
+  display: inline-flex;
+}
+
+.biz-tabs .el-radio-button__inner {
+  font-size: 14px;
+}
+
+/* ---------- KPI ---------- */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+/* 财务门户数据模块视觉 + LUI 字号/间距：padding 16 / 主值 32 / 标题 14 */
+.kpi-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--lui-space-xs);
+  background: linear-gradient(0deg, #ffffff 0%, #f3f6ff 100%);
+  border: 1px solid rgba(60, 110, 240, 0.1);
+  border-radius: var(--lui-radius-base);
+  padding: var(--lui-space-md);
+  box-sizing: border-box;
+  min-height: 120px;
+}
+
+.kpi-card__title {
+  font-size: var(--lui-font-size-body);
+  line-height: var(--lui-line-height-body);
+  font-weight: var(--lui-font-weight-medium);
+  color: var(--lui-text-regular);
+  margin-bottom: 0;
+}
+
+.kpi-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  min-height: var(--lui-line-height-kpi);
+  font-family: var(--lui-font-number);
+  font-size: var(--lui-font-size-kpi);
+  line-height: var(--lui-line-height-kpi);
+  font-weight: var(--lui-font-weight-regular);
+  color: var(--lui-text-main);
+}
+
+/* 表格省略气泡等通用 tooltip 样式在组件内 scoped 维护 */

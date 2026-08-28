@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "gate": "C",
+  "target_stage": "S6",
+  "mode": "p2c",
+  "issues": []
+}

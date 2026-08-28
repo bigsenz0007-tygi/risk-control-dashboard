@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "feature_id": "risk-control-dashboard",
+  "linted_at": "2026-08-27T11:00:00Z",
+  "result": "pass",
+  "critical": 0,
+  "warning": 1,
+  "warnings": [
+    {
+      "code": "OQ-OPEN",
+      "message": "OQ-001/OQ-002 仍 open，但不阻断本地 greenfield 锁定（blocks_lock=false）"
+    }
+  ],
+  "checks": {
+    "meta_locked": true,
+    "flows_present": true,
+    "fields_present": true,
+    "exceptions_present": true,
+    "acceptance_linked": true
+  }
+}
