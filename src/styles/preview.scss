@@ -129,7 +129,7 @@ body {
 .filter-panel {
   flex-shrink: 0;
   background: #fff;
-  border: 1px solid var(--lui-border);
+  border: none;
   border-radius: var(--lui-radius-base);
   overflow: hidden;
 }
@@ -441,7 +441,7 @@ body {
 .table-card {
   flex-shrink: 0;
   background: #fff;
-  border: 1px solid var(--lui-border);
+  border: none;
   border-radius: var(--lui-radius-base);
   padding: var(--lui-space-md);
   display: flex;

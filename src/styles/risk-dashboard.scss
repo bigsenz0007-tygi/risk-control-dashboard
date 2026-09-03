@@ -2,7 +2,7 @@
 
 .cockpit-panel {
   background: #fff;
-  border: 1px solid var(--lui-border);
+  border: none;
   border-radius: var(--lui-radius-base);
   padding: var(--lui-space-md);
   box-sizing: border-box;
@@ -240,7 +240,7 @@
 
 .chart-card {
   background: #fff;
-  border: 1px solid var(--lui-border);
+  border: none;
   border-radius: var(--lui-radius-base);
   padding: var(--lui-space-md);
   box-sizing: border-box;
