@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 
 export default defineConfig({
+  base: process.env.GH_PAGES === '1' ? '/risk-control-dashboard/' : '/',
   plugins: [createVuePlugin()],
   resolve: {
     dedupe: ['vue'],

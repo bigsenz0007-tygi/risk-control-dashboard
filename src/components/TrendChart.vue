@@ -83,7 +83,7 @@
           text-anchor="middle"
           :fill="hover && hover.i === i ? '#23252B' : '#868D9F'"
           :font-size="svgFontSize"
-          :font-weight="hover && hover.i === i ? 600 : 400"
+          font-weight="400"
           :font-family="chartFontNumber"
         >
           {{ p.time }}

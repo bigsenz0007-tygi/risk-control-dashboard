@@ -261,7 +261,7 @@ body {
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-  gap: var(--lui-space-sm);
+  gap: 12px;
 }
 
 .query-actions .el-button {
@@ -269,6 +269,7 @@ body {
   margin-left: 0;
 }
 
+.risk-page .query-actions .el-button + .el-button,
 .query-actions .el-button + .el-button {
   margin-left: 0;
 }
