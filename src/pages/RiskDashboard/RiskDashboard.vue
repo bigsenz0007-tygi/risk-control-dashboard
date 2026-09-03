@@ -20,7 +20,6 @@
       <div class="cockpit-panel__head">
         <div class="cockpit-panel__title-wrap">
           <h3 class="cockpit-panel__title">核心指标驾驶舱</h3>
-          <span class="cockpit-panel__hint">数据每10分钟刷新</span>
         </div>
       </div>
       <div class="kpi-row kpi-row--5">

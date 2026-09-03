@@ -65,7 +65,9 @@ export default {
   bottom: calc(100% + 8px);
   transform: translateX(-50%);
   z-index: 3100;
-  width: 160px;
+  width: max-content;
+  min-width: 120px;
+  max-width: 200px;
   box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 8px;

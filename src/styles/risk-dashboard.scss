@@ -44,13 +44,6 @@
   background: var(--lui-primary);
 }
 
-.cockpit-panel__hint {
-  font-size: var(--lui-font-size-aux);
-  line-height: var(--lui-line-height-aux);
-  color: var(--lui-text-secondary);
-  white-space: nowrap;
-}
-
 .cockpit-panel .kpi-row--5 {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
