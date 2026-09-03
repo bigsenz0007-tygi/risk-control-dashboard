@@ -65,7 +65,8 @@ export default {
   bottom: calc(100% + 8px);
   transform: translateX(-50%);
   z-index: 3100;
-  max-width: 280px;
+  width: 160px;
+  box-sizing: border-box;
   padding: 8px 12px;
   border-radius: 8px;
   background: rgba(35, 37, 43, 0.92);
@@ -87,7 +88,7 @@ export default {
   content: '';
   position: absolute;
   left: 50%;
-  top: 100%;
+  top: calc(100% - 1px);
   transform: translateX(-50%);
   border: 6px solid transparent;
   border-top-color: rgba(35, 37, 43, 0.92);
